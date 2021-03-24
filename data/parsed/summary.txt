@@ -1,0 +1,12 @@
+L11 field under segment L1 passes all the validation criteria.
+L12 field under segment L1 passes all the validation criteria.
+L21 field under section L2 fails the max length (expected: 1) validation, however it passes the data type (word_characters) validation
+L22 field under segment L2 passes all the validation criteria.
+L23 field under section L2 fails the data type (expected: word_characters) validation, however it passes the max length (2) validation
+L11 field under section L1 fails all the validation criteria.
+L12 field under section L1 fails the max length (expected: 3) validation, however it passes the data type (word_characters) validation
+L31 field under section L3 fails the data type (expected: word_characters) validation, however it passes the max length (1) validation
+L41 field under section L4 is missing.
+L42 field under section L4 fails the max length (expected: 6) validation, however it passes the data type (digits) validation
+Discarded: sub section L43 of L4 not in standard schema
+L31 field under section L3 fails the data type (expected: word_characters) validation, however it passes the max length (1) validation
