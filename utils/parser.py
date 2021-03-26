@@ -7,13 +7,15 @@ from utils import helper as hp
 
 logger = logger.logger(__name__,logging.DEBUG)
 
-def file_parser(data_schema_json: list,
+def file_parser(input_path:str, data_schema_json: list,
                         section_list: list,error_code: list):
     """
     Function to parse the text file
 
     Args:
-
+        data_schema_json: json file containing standard definition of data
+        section_list: list consists of all the sections from standard definition
+        error_code: list consists of error code templates
     Returns:
         tuple: report file as list of list and summary file as list
     """
@@ -25,7 +27,7 @@ def file_parser(data_schema_json: list,
     main_report_list = []
 
     # read the file
-    with open(config.INPUT_PATH,'r') as txt_file:
+    with open(input_path,'r') as txt_file:
         # track the row number
         row_index =1
 
