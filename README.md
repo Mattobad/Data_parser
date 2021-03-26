@@ -8,22 +8,18 @@ BlueNode interview assignment
 ## Environment setup
 
 **Anaconda:** 
-
-`$ conda create --name ENVNAME python=3.8`
-
-`$ conda activate ENVNAME`
-
-`$ pip install -r requirements.txt`
-
+```
+$ conda create --name ENVNAME python=3.8
+$ conda activate ENVNAME
+$ pip install -r requirements.txt
+```
 **VirtualEnv:**
-
-`$ pip install virtualenv`
-
-`$ python3 -m venv env`
-
-`$ source env/bin/activate`
-
-`$ pip install -r requirements.txt`
+```
+$ pip install virtualenv
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
 
 
 ## How to run locally:
