@@ -9,7 +9,7 @@ from config import config
 logger = logger.logger(__name__,logging.DEBUG)
 
 
-def init_parser():
+def init_parser() -> None:
     """
     Funtion to start the parsing of the input file
 

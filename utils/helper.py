@@ -28,7 +28,7 @@ def read_json(file_path:str):
         logger.exception('Error!! Json file not found')
        
 
-def get_sections_list(json_file:list):
+def get_sections_list(json_file:list) -> list:
     """
     Function to get the list of sections from the data schema
 
@@ -44,7 +44,6 @@ def get_sections_list(json_file:list):
 
     try:
         for json_object in json_file:
-            #print(section['sub_sections'])
             for key,value in json_object.items():
                 #check if the value is the key
                 if type(json_object[key]) == type('check_string_type'):
@@ -57,7 +56,7 @@ def get_sections_list(json_file:list):
 
 
 def get_validation_criteria(json_file: list,section:str,
-                                sub_section:str):
+                                sub_section:str) -> tuple:
     """
     Function to return validation criteria for the sub_section i.e. 
     data type and max_length allowed
@@ -84,7 +83,7 @@ def get_validation_criteria(json_file: list,section:str,
 
 
 def summary_msg_formatter(msg_format: str ,segment_name:str ,field_num: int,
-                            validation: tuple=None):
+                            validation: tuple=None) -> str:
     """
     Function to return summary message
 

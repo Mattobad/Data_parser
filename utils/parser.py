@@ -8,7 +8,7 @@ from utils import helper as hp
 logger = logger.logger(__name__,logging.DEBUG)
 
 def file_parser(input_path:str, data_schema_json: list,
-                        section_list: list,error_code: list):
+                        section_list: list,error_code: list) -> tuple:
     """
     Function to parse the text file
 
