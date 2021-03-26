@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 # root package
-PACKAGE_ROOT =Path('data').resolve()
+PACKAGE_ROOT_DATA =Path('data').resolve()
 
 
 """
@@ -19,11 +19,11 @@ ERROR_CODE_FILE = 'error_codes.json'
 FILE PATHS
 """ 
 
-DATA_SCHEMA_PATH = os.path.join(PACKAGE_ROOT,DATA_SCHEMA_FILE)
+DATA_SCHEMA_PATH = os.path.join(PACKAGE_ROOT_DATA,DATA_SCHEMA_FILE)
 
-INPUT_PATH = os.path.join(PACKAGE_ROOT,INPUT_FILE)
+INPUT_PATH = os.path.join(PACKAGE_ROOT_DATA,INPUT_FILE)
 
-ERROR_CODE_PATH = os.path.join(PACKAGE_ROOT,ERROR_CODE_FILE)
+ERROR_CODE_PATH = os.path.join(PACKAGE_ROOT_DATA,ERROR_CODE_FILE)
 
 
 """
@@ -39,7 +39,7 @@ OUPUT PATH
 """
 OUTPUT_DIR = 'parsed'
 
-OUTPUT_DIR_PATH = os.path.join(PACKAGE_ROOT,OUTPUT_DIR)
+OUTPUT_DIR_PATH = os.path.join(PACKAGE_ROOT_DATA,OUTPUT_DIR)
 
 REPORT_PATH = os.path.join(OUTPUT_DIR_PATH,REPORT_FILE)
 
@@ -53,6 +53,18 @@ REPORT_COLMNS = ["Section","Sub-Section","Given DataType",
                         "Expected MaxLength","Error Code"]
 
 
+"""
+TEST DATA AND ITS PATH 
+"""
+
+TEST_DATA_FILE = 'test_file.txt'
+
+TEST_REPORT_FILE = 'test_report.csv'
+TEST_SUMMARY_FILE = 'test_summary.txt'
+
+TEST_DATA_PATH = os.path.join(PACKAGE_ROOT_DATA,'tests',TEST_DATA_FILE)
+TEST_REPORT_PATH = os.path.join(PACKAGE_ROOT_DATA,'tests',TEST_REPORT_FILE)
+TEST_SUMMARY_PATH = os.path.join(PACKAGE_ROOT_DATA,'tests',TEST_SUMMARY_FILE)
 
 
 
