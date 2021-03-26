@@ -13,7 +13,7 @@ def init_parser() -> None:
     """
     Funtion to start the parsing of the input file
 
-    Args:
+    Returns:
         None
     """
     # load standard definition 
