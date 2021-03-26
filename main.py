@@ -27,18 +27,18 @@ if __name__ == '__main__':
     start_time = time.time()
 
     report_list_of_list, summary_list = parser.file_parser(input_path=config.INPUT_PATH,
-                                                            data_schema_json,
-                                                            section_list,
-                                                            error_code) 
+                                                            data_schema_json=data_schema_json,
+                                                            section_list=section_list,
+                                                            error_code=error_code) 
 
 
     # save report as csv file
-    result_csv = hp.save_to_csv(report_list_of_list,
+    result_csv = hp.save_to_csv(report=report_list_of_list,
                                 report_path=config.REPORT_PATH)
     logger.debug(f'Write csv file to disk: {result_csv}')
 
     # save summary as text file
-    result_txt = hp.save_to_txt(summary_list,
+    result_txt = hp.save_to_txt(summary=summary_list,
                                     dest_path=config.SUMMARY_PATH)
     logger.debug(f'Write text file to disk: {result_txt}')
 

@@ -12,7 +12,7 @@ def test_get_section(standard_definition,section_list):
     """ Tests the section values in standard definition file """
 
     # when
-    sections = hp.get_sections_list(standard_definition)
+    sections = hp.get_sections_list(json_file=standard_definition)
 
     #then
     assert len(sections) == len(section_list)
@@ -29,9 +29,9 @@ def test_validation_criteria(standard_definition,section_dict):
         
         for sub_section in sub_section_arr:
             data_type,max_length = hp.get_validation_criteria(
-                                            standard_definition,
-                                            section,
-                                            sub_section)
+                                            json_file=standard_definition,
+                                            section=section,
+                                            sub_section=sub_section)
 
             if sub_section != 'L33':
                 assert data_type in ['digits','word_characters']
@@ -65,8 +65,9 @@ def test_msg_formatter(standard_definition,error_definition,
                                             field_num=1)
 
     data_type,max_length = hp.get_validation_criteria(
-                                            standard_definition,
-                                            segment,sub_section)
+                                            json_file=standard_definition,
+                                            section=segment,
+                                            sub_section=sub_section)
 
     summary_msg1 = hp.summary_msg_formatter(msg_format=error_template,
                                             segment_name=segment,
