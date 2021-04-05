@@ -29,7 +29,7 @@ def test_validation_criteria(standard_definition,section_dict):
         
         for sub_section in sub_section_arr:
             data_type,max_length = hp.get_validation_criteria(
-                                            json_file=standard_definition,
+                                            data_schema_json=standard_definition,
                                             section=section,
                                             sub_section=sub_section)
 
@@ -62,16 +62,16 @@ def test_msg_formatter(standard_definition,error_definition,
     sub_section = section_dict[segment][0]
     summary_msg = hp.summary_msg_formatter(msg_format=error_template,
                                             segment_name=segment,
-                                            field_num=1)
+                                            subsection=sub_section)
 
     data_type,max_length = hp.get_validation_criteria(
-                                            json_file=standard_definition,
+                                            data_schema_json=standard_definition,
                                             section=segment,
                                             sub_section=sub_section)
 
     summary_msg1 = hp.summary_msg_formatter(msg_format=error_template,
                                             segment_name=segment,
-                                            field_num=1,
+                                            subsection=sub_section,
                                             validation=(data_type, 
                                                         max_length)
                                             )

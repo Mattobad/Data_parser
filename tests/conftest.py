@@ -80,10 +80,7 @@ def summary_report(standard_definition,section_list,
                         error_definition):
     """ Yields report and summary list for test file """
 
-    report,summary = parser.file_parser(input_path=config.TEST_DATA_PATH,
-                                            data_schema_json=standard_definition,
-                                            section_list=section_list,
-                                            error_code=error_definition)
+    report,summary = parser.file_parser(input_path=config.TEST_DATA_PATH)
 
     yield report, summary
 
