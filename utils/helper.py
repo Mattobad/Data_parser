@@ -55,14 +55,14 @@ def get_sections_list(json_file:list) -> list:
     return section_list
 
 
-def get_validation_criteria(json_file: list,section:str,
+def get_validation_criteria(data_schema_json: list,section:str,
                                 sub_section:str) -> tuple:
     """
     Function to return validation criteria for the sub_section i.e. 
     data type and max_length allowed
 
     Args:
-        json_file: json file consisting the schema
+        data_schema_json: json file consisting the schema
         section: section value related to the json
         sub_section: sub section value related to section
 
@@ -70,7 +70,7 @@ def get_validation_criteria(json_file: list,section:str,
         tuple: (data_type, max_length) if success else (None, error message)
     """
 
-    for json_object in json_file:
+    for json_object in data_schema_json:
         for key,value in json_object.items():            
             if value == section:
                 for value in json_object['sub_sections']:
@@ -81,8 +81,34 @@ def get_validation_criteria(json_file: list,section:str,
                 return None,'value not found!!'
 
 
+def get_sub_section(standard_definition: list,
+                    section_name: str):
+    
+    """
+    Function to return sub-section of the given section
 
-def summary_msg_formatter(msg_format: str ,segment_name:str ,field_num: int,
+    Args:
+        standard_definition: data schema definition
+        section_name: name of the section
+
+    Returns:
+        list containing subsection
+    """
+
+    # empty list for subsections
+    sub_section_list = []
+
+    for section in standard_definition:
+        for key,_ in section.items():
+            if section[key] == section_name:
+                for subsection in section['sub_sections']:
+                    sub_section_list.append(subsection['key'])
+
+    return sub_section_list
+
+
+
+def summary_msg_formatter(msg_format: str ,segment_name:str ,subsection: str,
                             validation: tuple=None) -> str:
     """
     Function to return summary message
@@ -90,7 +116,7 @@ def summary_msg_formatter(msg_format: str ,segment_name:str ,field_num: int,
     Args:
         msg_format: message format for the summary message
         segment_name: name of the segment/section
-        field_num: field number related to segment/section name 
+        subsection: subsection related to segment/section name 
         validation: validation tuple from standard definition for field_num from segment_name
 
     Returns:
@@ -98,7 +124,7 @@ def summary_msg_formatter(msg_format: str ,segment_name:str ,field_num: int,
     """
 
     try:
-        msg_format = msg_format.replace('LX',segment_name).replace('Y',str(field_num))
+        msg_format = msg_format.replace('LXY',subsection).replace('LX',segment_name)
     except:
         logger.exception('Error!! string value replacement in given messag format')
 
